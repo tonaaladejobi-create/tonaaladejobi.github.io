@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adetona Aladejobi | Finance & Asset Management Portfolio</title>
+    <!-- Inter & Playfair Display Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#070c18',
+                            900: '#0c1527',
+                            850: '#111e38',
+                            800: '#182747',
+                            700: '#233966',
+                        },
+                        gold: {
+                            400: '#f5c056',
+                            500: '#e5aa32',
+                            600: '#c58d20',
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(17, 30, 56, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(229, 170, 50, 0.35);
+            box-shadow: 0 10px 30px -10px rgba(7, 12, 24, 0.6), 0 0 20px -5px rgba(229, 170, 50, 0.15);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fce6a8 0%, #e5aa32 60%, #c58d20 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .emerald-glow {
+            box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.25);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070c18;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e3158;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e5aa32;
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-slate-200 font-sans antialiased selection:bg-gold-500/30 selection:text-gold-400">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-navy-950/85 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-gold-600 to-amber-300 flex items-center justify-center text-navy-950 font-bold font-serif text-lg shadow-lg group-hover:scale-105 transition-transform">
+                        AA
+                    </div>
+                    <div>
+                        <span class="block text-base font-bold tracking-wide text-white group-hover:text-gold-400 transition-colors">ADETONA ALADEJOBI</span>
+                        <span class="block text-xs uppercase tracking-widest text-slate-400 font-medium">Finance • CFA Candidate</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#about" class="text-slate-300 hover:text-gold-400 transition-colors">About</a>
+                    <a href="#education" class="text-slate-300 hover:text-gold-400 transition-colors">Education</a>
+                    <a href="#experience" class="text-slate-300 hover:text-gold-400 transition-colors">Experience</a>
+                    <a href="#projects" class="text-slate-300 hover:text-gold-400 transition-colors">Projects</a>
+                    <a href="#skills" class="text-slate-300 hover:text-gold-400 transition-colors">Skills & Affiliations</a>
+                    <a href="#contact" class="px-4 py-2 rounded-lg bg-gold-500 hover:bg-gold-400 text-navy-950 font-semibold transition-all shadow-md hover:shadow-gold-500/20">
+                        Get In Touch
+                    </a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="p-2 text-slate-300 hover:text-white focus:outline-none" aria-label="Open navigation menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-slate-800 px-6 py-5 space-y-3">
+            <a href="#about" class="block text-slate-300 hover:text-gold-400 text-base mobile-link">About</a>
+            <a href="#education" class="block text-slate-300 hover:text-gold-400 text-base mobile-link">Education</a>
+            <a href="#experience" class="block text-slate-300 hover:text-gold-400 text-base mobile-link">Experience</a>
+            <a href="#projects" class="block text-slate-300 hover:text-gold-400 text-base mobile-link">Projects</a>
+            <a href="#skills" class="block text-slate-300 hover:text-gold-400 text-base mobile-link">Skills & Leadership</a>
+            <a href="#contact" class="block text-center py-2.5 rounded-lg bg-gold-500 text-navy-950 font-semibold mobile-link">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-36 pb-24 md:pt-44 md:pb-32 overflow-hidden">
+        <!-- Subtle Glow Orbs Background -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-gold-500/10 via-emerald-500/10 to-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Column: Introduction & Value Proposition -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-850/90 border border-gold-500/30 text-xs font-semibold text-gold-400 tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Rutgers Business School • Finance BS '27
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Bridging <span class="gold-gradient-text">Asset Management</span>, Macro Research & Valuation.
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        I am <span class="font-semibold text-white">Adetona Aladejobi</span>, a high-performing finance student and CFA Candidate with institutional experience across asset allocation at Sterling Bank, financial analysis, and DCF corporate valuation modeling.
+                    </p>
+
+                    <!-- Key Highlighting Metrics -->
+                    <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-2 pb-2 max-w-lg mx-auto lg:mx-0">
+                        <div class="glass-card rounded-xl p-3 text-center border-slate-700/60">
+                            <div class="text-2xl sm:text-3xl font-bold text-gold-400">3.6</div>
+                            <div class="text-xs text-slate-400 font-medium">Cumulative GPA</div>
+                        </div>
+                        <div class="glass-card rounded-xl p-3 text-center border-slate-700/60">
+                            <div class="text-2xl sm:text-3xl font-bold text-emerald-400">CFA</div>
+                            <div class="text-xs text-slate-400 font-medium">Candidate</div>
+                        </div>
+                        <div class="glass-card rounded-xl p-3 text-center border-slate-700/60">
+                            <div class="text-2xl sm:text-3xl font-bold text-slate-100">3x</div>
+                            <div class="text-xs text-slate-400 font-medium">Dean's List Honors</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Actions -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
+                        <a href="#experience" class="px-6 py-3.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold transition-all shadow-lg hover:shadow-gold-500/25 flex items-center gap-2">
+                            <span>Explore Experience</span>
+                            <i class="fa-solid fa-arrow-down text-sm"></i>
+                        </a>
+                        <a href="mailto:tonaaladejobi@gmail.com" class="px-6 py-3.5 rounded-xl glass-card hover:bg-navy-800 text-slate-200 font-semibold transition-all border border-slate-700 hover:border-slate-500 flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-gold-400"></i>
+                            <span>Contact Me</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adetona-aladejobi/" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl glass-card text-slate-300 hover:text-gold-400 hover:border-gold-500/40 transition-all" title="LinkedIn Profile">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Professional Headshot Container -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 sm:w-80 md:w-96">
+                        <!-- Decorative back glow rings -->
+                        <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-gold-500/30 via-emerald-500/20 to-blue-500/30 blur-xl opacity-75"></div>
+                        
+                        <div class="relative rounded-3xl p-2 bg-gradient-to-b from-slate-700 to-navy-900 border border-slate-700 shadow-2xl">
+                            <!-- Image Frame: Loads headshot.jpg from GitHub/host repository with professional fallbacks -->
+                            <div class="relative rounded-2xl overflow-hidden bg-navy-900 aspect-[4/5] flex items-center justify-center group">
+                                <img 
+                                    id="headshot-img"
+                                    src="headshot.jpg" 
+                                    alt="Adetona Aladejobi - Professional Headshot" 
+                                    class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
+                                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800'; document.getElementById('headshot-tip').classList.remove('hidden');"
+                                />
+
+                                <!-- Floating Badge -->
+                                <div class="absolute bottom-4 left-4 right-4 bg-navy-950/85 backdrop-blur-md p-3 rounded-xl border border-slate-700/80 flex items-center justify-between">
+                                    <div>
+                                        <p class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Focus</p>
+                                        <p class="text-sm font-bold text-white">Wealth & Capital Markets</p>
+                                    </div>
+                                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                                        <i class="fa-solid fa-chart-line text-sm"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Instruction badge for repository owner (hidden once local headshot.jpg is placed in repo root) -->
+                        <div id="headshot-tip" class="hidden mt-3 text-center text-xs text-slate-400">
+                            <i class="fa-solid fa-circle-info text-gold-400 mr-1"></i> Place your picture named <code class="bg-navy-900 px-1 py-0.5 rounded text-gold-300">headshot.jpg</code> in your root repo folder to display your custom headshot!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-navy-900/60 border-t border-b border-slate-800/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Executive Summary</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Analytical Rigor Meets Market Instinct</h3>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6 text-xl">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Asset & Wealth Management</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Experience calculating Net Asset Value (NAV), Assets Under Management (AUM), and multi-asset class returns across client profiles at Sterling Bank, matching risk profiles with macroeconomic environments.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 text-xl">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Valuation & DCF Modeling</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Hands-on financial modeling using Weighted Average Cost of Capital (WACC), terminal growth rates, and sensitivity analysis. Proven through in-depth equity valuations on major global equities like Johnson & Johnson.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-card glass-card-hover p-8 rounded-2xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-6 text-xl">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Leadership & Execution</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Serving as Fundraising Chair for NABA, orchestrating capital growth exceeding $2,000 from a modest $500 baseline budget, while actively contributing to LIBOR and Rutgers Real Estate Club.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Academic Foundation</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Rutgers Business School</h3>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 sm:p-10 border border-slate-700/70 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-800 gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-xl bg-red-900/30 border border-red-500/30 flex items-center justify-center text-red-400 font-bold text-2xl">
+                            R
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">Rutgers, The State University of New Jersey</h4>
+                            <p class="text-gold-400 font-medium">Rutgers Business School • New Brunswick, NJ</p>
+                        </div>
+                    </div>
+                    <div class="text-left md:text-right">
+                        <span class="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold rounded-full">
+                            Expected Graduation: May 2027
+                        </span>
+                        <p class="text-slate-400 text-xs mt-1">Bachelor of Science in Finance</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+                    <div>
+                        <h5 class="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-award text-gold-400"></i> Honors & Designations
+                        </h5>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                                <strong>Cumulative GPA:</strong> 3.6 / 4.0
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+                                <strong>CFA Institute:</strong> CFA Candidate
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-400 mt-1.5"></span>
+                                <span><strong>Dean’s List Honors:</strong> Fall 2023, Spring 2024, Fall 2025</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-book-bookmark text-gold-400"></i> Rigorous Coursework
+                        </h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-navy-850 rounded-lg text-xs font-medium text-slate-200 border border-slate-700">Financial Accounting</span>
+                            <span class="px-3 py-1 bg-navy-850 rounded-lg text-xs font-medium text-slate-200 border border-slate-700">Managerial Accounting</span>
+                            <span class="px-3 py-1 bg-navy-850 rounded-lg text-xs font-medium text-slate-200 border border-slate-700">Corporate Finance</span>
+                            <span class="px-3 py-1 bg-navy-850 rounded-lg text-xs font-medium text-slate-200 border border-slate-700">Financial Management</span>
+                            <span class="px-3 py-1 bg-navy-850 rounded-lg text-xs font-medium text-slate-200 border border-slate-700">Intermediate Macroeconomics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-navy-900/40 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Track Record</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Professional Experience</h3>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Experience Filters -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+                <button onclick="filterExperience('all')" class="exp-filter-btn active px-4 py-1.5 rounded-full text-xs font-semibold bg-gold-500 text-navy-950 transition-all shadow">
+                    All Experience
+                </button>
+                <button onclick="filterExperience('finance')" class="exp-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-navy-850 text-slate-300 hover:text-white border border-slate-700 transition-all">
+                    Finance & Wealth Mgmt
+                </button>
+                <button onclick="filterExperience('leadership')" class="exp-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-navy-850 text-slate-300 hover:text-white border border-slate-700 transition-all">
+                    Leadership & Advisory
+                </button>
+                <button onclick="filterExperience('technology')" class="exp-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-navy-850 text-slate-300 hover:text-white border border-slate-700 transition-all">
+                    Tech & AI
+                </button>
+            </div>
+
+            <!-- Timeline items -->
+            <div class="space-y-8" id="experience-container">
+
+                <!-- 1. Sterling Bank -->
+                <div class="exp-card glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative transition-all" data-category="finance">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30">Asset Management</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1"></i> Lagos, Nigeria</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mt-1">Sterling Bank</h4>
+                            <p class="text-gold-400 font-semibold text-sm">Asset & Wealth Management Intern</p>
+                        </div>
+                        <div class="text-slate-400 text-xs font-mono font-medium bg-navy-950/80 px-3 py-1.5 rounded-lg border border-slate-800 self-start sm:self-auto">
+                            July 2026 – August 2026
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300 list-disc list-outside ml-5">
+                        <li>Analyzed 10+ client portfolios across 3+ asset classes, calculating Assets Under Management (AUM), Net Asset Value (NAV), portfolio values, and investment returns.</li>
+                        <li>Evaluated 10+ client profiles and financial objectives to support tactical asset allocation and wealth preservation decisions.</li>
+                        <li>Researched 5+ macroeconomic indicators, including inflation rates, GDP growth, and monetary policy interest rates to identify emerging investment trends.</li>
+                    </ul>
+                </div>
+
+                <!-- 2. NABA Fundraising Chair -->
+                <div class="exp-card glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative transition-all" data-category="leadership">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Executive Leadership</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1"></i> New Brunswick, NJ</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mt-1">National Association of Black Accountants (NABA)</h4>
+                            <p class="text-gold-400 font-semibold text-sm">Fundraising Chair</p>
+                        </div>
+                        <div class="text-slate-400 text-xs font-mono font-medium bg-navy-950/80 px-3 py-1.5 rounded-lg border border-slate-800 self-start sm:self-auto">
+                            September 2025 – April 2026
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300 list-disc list-outside ml-5">
+                        <li>Spearheaded fundraising campaigns that generated over <strong>$2,000</strong> from an initial $500 baseline budget (300% return on allocated capital), expanding chapter student initiatives.</li>
+                        <li>Applied disciplined financial planning, variance analysis, and cost management to optimize event profitability.</li>
+                        <li>Collaborated closely with 5+ executive members to drive sales pipelines and engage over 100+ student attendees.</li>
+                    </ul>
+                </div>
+
+                <!-- 3. Handshake AI -->
+                <div class="exp-card glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative transition-all" data-category="technology">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase bg-blue-500/20 text-blue-300 border border-blue-500/30">Contract</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-globe mr-1"></i> Remote</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mt-1">Handshake AI</h4>
+                            <p class="text-gold-400 font-semibold text-sm">AI Quality & Data Specialist</p>
+                        </div>
+                        <div class="text-slate-400 text-xs font-mono font-medium bg-navy-950/80 px-3 py-1.5 rounded-lg border border-slate-800 self-start sm:self-auto">
+                            February 2025 – February 2026
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300 list-disc list-outside ml-5">
+                        <li>Evaluated and systematically annotated complex multimodal datasets to enhance machine learning model output quality.</li>
+                        <li>Identified edge-case logical inconsistencies and provided structured diagnostic feedback to engineering teams.</li>
+                        <li>Excelled in a rigorous metrics-driven environment with aggressive SLA adherence and qualitative benchmarks.</li>
+                    </ul>
+                </div>
+
+                <!-- 4. NABA Secretary Intern -->
+                <div class="exp-card glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative transition-all" data-category="leadership">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Operations & Budgeting</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1"></i> New Brunswick, NJ</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mt-1">National Association of Black Accountants (NABA)</h4>
+                            <p class="text-gold-400 font-semibold text-sm">Secretary Intern</p>
+                        </div>
+                        <div class="text-slate-400 text-xs font-mono font-medium bg-navy-950/80 px-3 py-1.5 rounded-lg border border-slate-800 self-start sm:self-auto">
+                            January 2025 – May 2025
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300 list-disc list-outside ml-5">
+                        <li>Coordinated strategic communications across 100+ students and partner organizations to streamline inter-club collaboration.</li>
+                        <li>Relayed funding proposals and sponsorship agreements to 5+ executive teams, supporting data-driven allocation decisions.</li>
+                        <li>Maintained rigorous meeting minutes and financial archives, achieving a 100% record accuracy rate for audit and budget continuity.</li>
+                    </ul>
+                </div>
+
+                <!-- 5. EHS Care Associates -->
+                <div class="exp-card glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative transition-all" data-category="finance">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30">Corporate Accounting</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-globe mr-1"></i> EMEA Team (Remote)</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mt-1">EHS Care Associates</h4>
+                            <p class="text-gold-400 font-semibold text-sm">Finance Intern</p>
+                        </div>
+                        <div class="text-slate-400 text-xs font-mono font-medium bg-navy-950/80 px-3 py-1.5 rounded-lg border border-slate-800 self-start sm:self-auto">
+                            January 2023 – December 2024
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300 list-disc list-outside ml-5">
+                        <li>Assisted 5+ senior financial supervisors in monthly reconciliation and analytical reviews of Profit & Loss (P&L) and Balance Sheet accounts.</li>
+                        <li>Partnered with cross-functional analysts across the EMEA region to investigate journal entry variances.</li>
+                        <li>Conducted best-practice research and operational recommendations, lifting procedural accounting accuracy by 15%.</li>
+                    </ul>
+                </div>
+
+                <!-- 6. Wilbraham & Monson Investment Seminar -->
+                <div class="exp-card glass-card glass-card-hover p-6 sm:p-8 rounded-2xl relative transition-all" data-category="finance">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/30">Equity Research</span>
+                                <span class="text-xs text-slate-400"><i class="fa-solid fa-location-dot mr-1"></i> Wilbraham, MA</span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mt-1">Wilbraham & Monson Investment Seminar</h4>
+                            <p class="text-gold-400 font-semibold text-sm">Equity Research Analyst</p>
+                        </div>
+                        <div class="text-slate-400 text-xs font-mono font-medium bg-navy-950/80 px-3 py-1.5 rounded-lg border border-slate-800 self-start sm:self-auto">
+                            September 2022 – November 2022
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300 list-disc list-outside ml-5">
+                        <li>Analyzed 10+ years of UnitedHealth Group (UNH) financial statements and market dynamics, isolating key profit drivers and valuation multiples.</li>
+                        <li>Delivered formal buy-side pitch deck to senior partners at Mark R. Shenkman Capital Management, presenting an investment thesis with target upside exceeding 20%.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Featured Project</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Financial Modeling & Valuation</h3>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Project Overview Card -->
+                <div class="lg:col-span-6 glass-card p-8 rounded-2xl border border-slate-700/80 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold uppercase bg-gold-500/20 text-gold-400 border border-gold-500/30">
+                            Discounted Cash Flow (DCF)
+                        </span>
+                        <span class="text-xs font-mono text-slate-400">July 2025 – August 2025</span>
+                    </div>
+
+                    <h4 class="text-2xl font-bold text-white">
+                        Johnson & Johnson (JNJ) Comprehensive Valuation Analysis
+                    </h4>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Constructed a full institutional-grade Discounted Cash Flow (DCF) and peer relative valuation model. Factored in patent cliffs, consumer health spin-off implications, pipeline pharmaceuticals, and sensitivity matrices across varied WACC and perpetual growth assumptions.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-navy-950/70 p-4 rounded-xl border border-slate-800">
+                            <span class="text-xs text-slate-400 block font-medium">Methodology</span>
+                            <span class="text-sm font-semibold text-emerald-400">DCF & Relative Multiples</span>
+                        </div>
+                        <div class="bg-navy-950/70 p-4 rounded-xl border border-slate-800">
+                            <span class="text-xs text-slate-400 block font-medium">Sensitivity Analysis</span>
+                            <span class="text-sm font-semibold text-gold-400">WACC ± 100 bps / Growth ± 50 bps</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check-circle text-emerald-400"></i>
+                            Built multi-stage Free Cash Flow to Firm (FCFF) projections.
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check-circle text-emerald-400"></i>
+                            Synthesized SEC 10-K disclosures, tax provisions, and capital expenditure needs.
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-check-circle text-emerald-400"></i>
+                            Formulated definitive investment thesis balancing qualitative drug pipeline catalysts with quantitative upside.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Interactive Mini-DCF Calculator Tool -->
+                <div class="lg:col-span-6 glass-card p-8 rounded-2xl border border-gold-500/30 shadow-xl">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                        <div>
+                            <h5 class="text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-chart-pie text-gold-400"></i> Live DCF Sensitivity Sandbox
+                            </h5>
+                            <p class="text-xs text-slate-400">Test intrinsic valuation impact in real-time</p>
+                        </div>
+                        <span class="text-xs font-mono text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded border border-gold-500/20">Interactive</span>
+                    </div>
+
+                    <div class="space-y-5 pt-5 text-sm">
+                        <!-- Input 1: Free Cash Flow Base -->
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-300 mb-1">
+                                <span>Starting Free Cash Flow (FCF $B):</span>
+                                <span id="fcf-val" class="font-mono text-gold-400 font-bold">$18.5 B</span>
+                            </div>
+                            <input type="range" id="fcf-slider" min="10" max="30" step="0.5" value="18.5" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-gold-500">
+                        </div>
+
+                        <!-- Input 2: 5-Year Growth Rate -->
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-300 mb-1">
+                                <span>5-Yr Projected Growth Rate (%):</span>
+                                <span id="growth-val" class="font-mono text-gold-400 font-bold">5.0%</span>
+                            </div>
+                            <input type="range" id="growth-slider" min="1" max="12" step="0.5" value="5.0" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-gold-500">
+                        </div>
+
+                        <!-- Input 3: WACC Discount Rate -->
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-300 mb-1">
+                                <span>Discount Rate (WACC %):</span>
+                                <span id="wacc-val" class="font-mono text-gold-400 font-bold">7.5%</span>
+                            </div>
+                            <input type="range" id="wacc-slider" min="5" max="12" step="0.25" value="7.5" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-gold-500">
+                        </div>
+
+                        <!-- Input 4: Perpetual Growth Rate -->
+                        <div>
+                            <div class="flex justify-between text-xs text-slate-300 mb-1">
+                                <span>Terminal Growth Rate (%):</span>
+                                <span id="term-val" class="font-mono text-gold-400 font-bold">2.5%</span>
+                            </div>
+                            <input type="range" id="term-slider" min="1" max="4" step="0.25" value="2.5" class="w-full h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-gold-500">
+                        </div>
+
+                        <!-- Real-time Output -->
+                        <div class="mt-6 p-4 rounded-xl bg-navy-950 border border-emerald-500/40 emerald-glow flex items-center justify-between">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Calculated Enterprise Value</span>
+                                <span id="ev-result" class="text-2xl font-extrabold text-emerald-400 font-mono">$409.8 B</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Implied Share Valuation</span>
+                                <span id="share-price" class="text-xl font-extrabold text-gold-400 font-mono">$170.75</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Affiliations Section -->
+    <section id="skills" class="py-20 bg-navy-900/60 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-2">Competencies & Involvement</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Skills & Campus Leadership</h3>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Financial Modeling & Tools -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-700/80">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                            <i class="fa-solid fa-file-excel text-lg"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Financial Modeling</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-slate-300">Advanced Excel & Modeling</span>
+                            <span class="text-xs font-mono text-gold-400">Expert</span>
+                        </div>
+                        <div class="w-full bg-navy-950 rounded-full h-2">
+                            <div class="bg-gold-500 h-2 rounded-full" style="width: 95%"></div>
+                        </div>
+
+                        <div class="flex items-center justify-between text-sm pt-2">
+                            <span class="text-slate-300">DCF & Relative Valuation</span>
+                            <span class="text-xs font-mono text-gold-400">Advanced</span>
+                        </div>
+                        <div class="w-full bg-navy-950 rounded-full h-2">
+                            <div class="bg-gold-500 h-2 rounded-full" style="width: 90%"></div>
+                        </div>
+
+                        <div class="flex items-center justify-between text-sm pt-2">
+                            <span class="text-slate-300">Financial Reporting & Accounting</span>
+                            <span class="text-xs font-mono text-gold-400">Proficient</span>
+                        </div>
+                        <div class="w-full bg-navy-950 rounded-full h-2">
+                            <div class="bg-gold-500 h-2 rounded-full" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical & Analytic Skills -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-700/80">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                            <i class="fa-solid fa-code text-lg"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Technical & Analytics</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="px-3 py-1.5 bg-navy-850 rounded-lg text-xs font-semibold text-slate-200 border border-slate-700">HTML5</span>
+                        <span class="px-3 py-1.5 bg-navy-850 rounded-lg text-xs font-semibold text-slate-200 border border-slate-700">JavaScript</span>
+                        <span class="px-3 py-1.5 bg-navy-850 rounded-lg text-xs font-semibold text-slate-200 border border-slate-700">PowerPoint Presentations</span>
+                        <span class="px-3 py-1.5 bg-navy-850 rounded-lg text-xs font-semibold text-slate-200 border border-slate-700">Microsoft Word</span>
+                        <span class="px-3 py-1.5 bg-navy-850 rounded-lg text-xs font-semibold text-slate-200 border border-slate-700">Data Annotation & QA</span>
+                        <span class="px-3 py-1.5 bg-navy-850 rounded-lg text-xs font-semibold text-slate-200 border border-slate-700">Macroeconomic Analysis</span>
+                    </div>
+                </div>
+
+                <!-- Professional Affiliations & Clubs -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-700/80">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                            <i class="fa-solid fa-building-columns text-lg"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Student Organizations</h4>
+                    </div>
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-users text-gold-400 mt-1"></i>
+                            <div>
+                                <span class="font-semibold text-white block">NABA</span>
+                                <span class="text-xs text-slate-400">Fundraising Chair & E-board Member</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-briefcase text-emerald-400 mt-1"></i>
+                            <div>
+                                <span class="font-semibold text-white block">LIBOR</span>
+                                <span class="text-xs text-slate-400">Little Investment Bankers of Rutgers</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-city text-blue-400 mt-1"></i>
+                            <div>
+                                <span class="font-semibold text-white block">Rutgers Real Estate Club</span>
+                                <span class="text-xs text-slate-400">Active Member</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-card rounded-3xl p-8 sm:p-14 border border-gold-500/30 text-center relative overflow-hidden">
+                <div class="absolute -top-24 -right-24 w-72 h-72 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <h2 class="text-xs font-bold uppercase tracking-widest text-gold-400 mb-3">Initiate Contact</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Let’s Discuss Investment & Finance Opportunities</h3>
+                <p class="text-slate-300 max-w-xl mx-auto text-base mb-10 leading-relaxed">
+                    Currently seeking competitive Summer 2027 and off-cycle internships in Asset Management, Investment Banking, Equity Research, and Corporate Finance.
+                </p>
+
+                <!-- Action badges grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-3xl mx-auto">
+                    <!-- Email -->
+                    <a href="mailto:tonaaladejobi@gmail.com" class="p-4 rounded-xl bg-navy-950/80 hover:bg-navy-850 border border-slate-700/80 hover:border-gold-500/40 transition-all flex flex-col items-center group">
+                        <i class="fa-solid fa-envelope text-gold-400 text-xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs text-slate-400">Email Direct</span>
+                        <span class="text-sm font-semibold text-slate-200 mt-0.5">tonaaladejobi@gmail.com</span>
+                    </a>
+
+                    <!-- Phone -->
+                    <a href="tel:+19084170034" class="p-4 rounded-xl bg-navy-950/80 hover:bg-navy-850 border border-slate-700/80 hover:border-gold-500/40 transition-all flex flex-col items-center group">
+                        <i class="fa-solid fa-phone text-emerald-400 text-xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs text-slate-400">Mobile Phone</span>
+                        <span class="text-sm font-semibold text-slate-200 mt-0.5">+1 (908) 417-0034</span>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/adetona-aladejobi/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-navy-950/80 hover:bg-navy-850 border border-slate-700/80 hover:border-gold-500/40 transition-all flex flex-col items-center group">
+                        <i class="fa-brands fa-linkedin text-blue-400 text-xl mb-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="text-xs text-slate-400">LinkedIn Profile</span>
+                        <span class="text-sm font-semibold text-slate-200 mt-0.5">/in/adetona-aladejobi</span>
+                    </a>
+                </div>
+
+                <!-- Resume Download and Copy details -->
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <button onclick="copyEmailToClipboard()" id="copy-email-btn" class="px-6 py-3 rounded-xl bg-navy-850 hover:bg-slate-800 text-slate-200 font-semibold border border-slate-700 text-sm transition-all flex items-center gap-2">
+                        <i class="fa-regular fa-copy text-gold-400"></i>
+                        <span id="copy-email-text">Copy Email Address</span>
+                    </button>
+                    <a href="mailto:tonaaladejobi@gmail.com?subject=Adetona%20Aladejobi%20Resume%20Request" class="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-sm transition-all shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        <span>Request Official PDF Resume</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-navy-950 border-t border-slate-800/80 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Adetona Aladejobi. All rights reserved. Rutgers Business School.</p>
+            <div class="flex items-center gap-6">
+                <a href="#hero" class="hover:text-gold-400 transition-colors">Back to Top</a>
+                <a href="https://www.linkedin.com/in/adetona-aladejobi/" target="_blank" class="hover:text-gold-400 transition-colors">LinkedIn</a>
+                <a href="mailto:tonaaladejobi@gmail.com" class="hover:text-gold-400 transition-colors">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Copy Email Function using execCommand for sandbox/iframe safety
+        function copyEmailToClipboard() {
+            const email = "tonaaladejobi@gmail.com";
+            const tempInput = document.createElement("input");
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand("copy");
+                const copyBtnText = document.getElementById("copy-email-text");
+                const original = copyBtnText.innerText;
+                copyBtnText.innerText = "Email Copied!";
+                setTimeout(() => {
+                    copyBtnText.innerText = original;
+                }, 2000);
+            } catch (err) {
+                console.error("Copy failed", err);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // Experience Category Filter
+        function filterExperience(category) {
+            const cards = document.querySelectorAll('.exp-card');
+            const buttons = document.querySelectorAll('.exp-filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-gold-500', 'text-navy-950');
+                btn.classList.add('bg-navy-850', 'text-slate-300');
+            });
+
+            // Highlight clicked button
+            const activeBtn = event.currentTarget;
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-gold-500', 'text-navy-950');
+                activeBtn.classList.remove('bg-navy-850', 'text-slate-300');
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                }
+            });
+        }
+
+        // Live DCF Sandbox Formula Calculations
+        const fcfSlider = document.getElementById('fcf-slider');
+        const growthSlider = document.getElementById('growth-slider');
+        const waccSlider = document.getElementById('wacc-slider');
+        const termSlider = document.getElementById('term-slider');
+
+        const fcfVal = document.getElementById('fcf-val');
+        const growthVal = document.getElementById('growth-val');
+        const waccVal = document.getElementById('wacc-val');
+        const termVal = document.getElementById('term-val');
+
+        const evResult = document.getElementById('ev-result');
+        const sharePriceResult = document.getElementById('share-price');
+
+        function updateDCF() {
+            const fcf = parseFloat(fcfSlider.value);
+            const growth = parseFloat(growthSlider.value) / 100;
+            const wacc = parseFloat(waccSlider.value) / 100;
+            const term = parseFloat(termSlider.value) / 100;
+
+            fcfVal.innerText = `$${fcf.toFixed(1)} B`;
+            growthVal.innerText = `${(growth * 100).toFixed(1)}%`;
+            waccVal.innerText = `${(wacc * 100).toFixed(2)}%`;
+            termVal.innerText = `${(term * 100).toFixed(2)}%`;
+
+            // Calculate 5-year PV of projected Free Cash Flows
+            let pvFCF = 0;
+            let currentFCF = fcf;
+            for (let i = 1; i <= 5; i++) {
+                currentFCF *= (1 + growth);
+                pvFCF += currentFCF / Math.pow(1 + wacc, i);
+            }
+
+            // Calculate Terminal Value (Gordon Growth model)
+            // Ensure WACC > Terminal Growth
+            const safeWacc = Math.max(wacc, term + 0.005);
+            const terminalValue = (currentFCF * (1 + term)) / (safeWacc - term);
+            const pvTV = terminalValue / Math.pow(1 + safeWacc, 5);
+
+            const enterpriseValue = pvFCF + pvTV;
+            // Approx shares outstanding ~2.4 Billion (JNJ baseline reference)
+            const approxShares = 2.4;
+            const impliedSharePrice = enterpriseValue / approxShares;
+
+            evResult.innerText = `$${enterpriseValue.toFixed(1)} B`;
+            sharePriceResult.innerText = `$${impliedSharePrice.toFixed(2)}`;
+        }
+
+        [fcfSlider, growthSlider, waccSlider, termSlider].forEach(slider => {
+            slider.addEventListener('input', updateDCF);
+        });
+
+        // Initialize on load
+        updateDCF();
+    </script>
+</body>
+</html>
